@@ -18,6 +18,9 @@ app.post('/api/url',function(req,res){
 		request({
 		  uri: req.body.query,
 		}, function(error, response, body) {
+			if(!response) {
+				return;
+			}
 		  extractedDom = response.body;
 		  res.send(extractedDom);
 		});
